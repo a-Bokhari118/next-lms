@@ -1,0 +1,14 @@
+import Navbar from "./_components/public-navbar";
+
+export default function PublicLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <Navbar />
+      <main className="container mx-auto">{children}</main>
+    </div>
+  );
+}
