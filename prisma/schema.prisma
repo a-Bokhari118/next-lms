@@ -112,9 +112,10 @@ model Course {
   userId           String
   user             User         @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  chapters Chapter[]
-
+  chapters    Chapter[]
   enrollments Enrollment[]
+
+  stripePriceId String @unique
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

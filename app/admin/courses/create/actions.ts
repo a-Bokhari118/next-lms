@@ -2,6 +2,7 @@
 
 import { requireAdmin } from "@/app/data/admin/require-admin";
 import { prisma } from "@/lib/db";
+import { stripe } from "@/lib/stripe";
 import { ApiResponse } from "@/lib/types";
 import { courseSchema, CourseSchemaType } from "@/lib/zod-schema";
 
@@ -19,10 +20,20 @@ export const createCourse = async (
       };
     }
 
+    const stripeProductData = await stripe.products.create({
+      name: validatedData.data.title,
+      description: validatedData.data.smallDescription,
+      default_price_data: {
+        currency: "usd",
+        unit_amount: Number(validatedData.data.price) * 100,
+      },
+    });
+
     const course = await prisma.course.create({
       data: {
         ...validatedData.data,
         userId: session?.user.id!,
+        stripePriceId: stripeProductData.default_price as string,
         price: Number(validatedData.data.price),
         duration: Number(validatedData.data.duration),
       },
