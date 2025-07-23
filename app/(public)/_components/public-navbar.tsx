@@ -26,7 +26,7 @@ const Navbar = () => {
   const { data: session, isPending } = authClient.useSession();
   return (
     <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex items-center px-4 md:px-6 lg:px-8 h-20">
+      <div className="container mx-auto flex items-center  h-20">
         <Link href="/" className="flex items-center space-x-2 mr-4">
           <Image src={Logo} alt="NEXT LMS" width={100} height={100} />
           <span className="text-2xl font-bold">NEXT LMS</span>
