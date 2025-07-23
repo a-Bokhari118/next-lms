@@ -15,11 +15,14 @@ import {
   IconChevronDown,
   IconClock,
 } from "@tabler/icons-react";
-import { ChartBar, Clock, Play } from "lucide-react";
+import { ChartBar, Clock, Link, Play } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { Layers, GraduationCap, Medal } from "lucide-react";
+import { enrollInCourse } from "./actions";
+import { userIsInrolled } from "@/app/data/user/user-is-inrolled";
+import { EnrollmentButton } from "./_components/inrollment-button";
 
 export default async function CourseSlugPage({
   params,
@@ -29,6 +32,7 @@ export default async function CourseSlugPage({
   const { slug } = await params;
   const course = await getSingleCourse(slug);
   const imageUrl = useConstructUrl(course.fileKey);
+  const isInrolled = await userIsInrolled(course.id);
   return (
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 mt-5">
       <div className="order-1 lg:col-span-2">
@@ -212,9 +216,13 @@ export default async function CourseSlugPage({
               </div>
 
               <div className="space-y-4">
-                <Button className="w-full" size="lg">
-                  Enroll Now
-                </Button>
+                {isInrolled ? (
+                  <Button className="w-full" size="lg" asChild>
+                    <Link href={`/dashboard`}>View Course</Link>
+                  </Button>
+                ) : (
+                  <EnrollmentButton courseId={course.id} />
+                )}
 
                 <div className="rounded-lg border p-4">
                   <h5 className="font-medium mb-2">Enrollment Benefits:</h5>

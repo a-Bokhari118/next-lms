@@ -3,7 +3,15 @@ import Image from "next/image";
 import { AdminCourseType } from "@/app/data/admin/admin-get-courses";
 import { useConstructUrl } from "@/hooks/use-construct-url";
 import Link from "next/link";
-import { BookOpen, Eye, MoreVertical, Pen, Timer, Trash2 } from "lucide-react";
+import {
+  Badge,
+  BookOpen,
+  Eye,
+  MoreVertical,
+  Pen,
+  Timer,
+  Trash2,
+} from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -74,6 +82,10 @@ const AdminCourseCard = ({ course }: { course: AdminCourseType }) => {
           <div className="flex items-center gap-x-2">
             <BookOpen className="size-6 p-1 rounded-md text-primary bg-primary/10" />
             <p className="text-sm text-muted-foreground">{course.level}</p>
+          </div>
+          <div className="flex items-center gap-x-2">
+            <Badge className="size-6 p-1 rounded-md text-primary bg-primary/10" />
+            <p className="text-sm text-muted-foreground">{course.status}</p>
           </div>
         </div>
         <Link

@@ -1,17 +1,10 @@
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { NextResponse } from "next/server";
-import { z } from "zod";
 import { v4 as uuidv4 } from "uuid";
 import { S3 } from "@/lib/S3-client";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { requireAdmin } from "@/app/data/admin/require-admin";
-
-export const fileUploadSchema = z.object({
-  fileName: z.string().min(1, { message: "File name is required" }),
-  contentType: z.string().min(1, { message: "Content type is required" }),
-  size: z.number().min(1, { message: "File size is required" }),
-  isImage: z.boolean(),
-});
+import { fileUploadSchema } from "./schema";
 
 export async function POST(req: Request) {
   const session = await requireAdmin();
