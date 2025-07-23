@@ -15,7 +15,7 @@ import {
   IconChevronDown,
   IconClock,
 } from "@tabler/icons-react";
-import { ChartBar, Clock, Link, Play } from "lucide-react";
+import { ChartBar, Clock, Play } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
@@ -23,6 +23,7 @@ import { Layers, GraduationCap, Medal } from "lucide-react";
 import { enrollInCourse } from "./actions";
 import { userIsInrolled } from "@/app/data/user/user-is-inrolled";
 import { EnrollmentButton } from "./_components/inrollment-button";
+import Link from "next/link";
 
 export default async function CourseSlugPage({
   params,
