@@ -22,11 +22,17 @@ export const adminGetSingleCourse = async (courseId: string) => {
       category: true,
       description: true,
       chapters: {
+        orderBy: {
+          position: "asc",
+        },
         select: {
           id: true,
           title: true,
           position: true,
           lessons: {
+            orderBy: {
+              position: "asc",
+            },
             select: {
               id: true,
               title: true,

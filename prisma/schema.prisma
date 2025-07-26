@@ -32,7 +32,8 @@ model User {
   banExpires  DateTime?
   enrollments Enrollment[]
 
-  stripeCustomerId String? @unique
+  stripeCustomerId String?          @unique
+  lessonProgress   LessonProgress[]
 
   @@unique([email])
   @@map("user")
@@ -149,8 +150,9 @@ model Lesson {
   chapterId    String
   chapter      Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  lessonProgress LessonProgress[]
 
   @@map("lesson")
 }
@@ -176,4 +178,20 @@ model Enrollment {
 
   @@unique([courseId, userId])
   @@map("enrollment")
+}
+
+model LessonProgress {
+  id String @id @default(uuid())
+
+  completed Boolean @default(false)
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lessonId  String
+  lesson    Lesson  @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, lessonId])
+  @@map("lesson_progress")
 }
