@@ -9,12 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import {
-  chapterSchema,
-  ChapterSchemaType,
-  lessonSchema,
-  LessonSchemaType,
-} from "@/lib/zod-schema";
+import { lessonSchema, LessonSchemaType } from "@/lib/zod-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PlusIcon } from "lucide-react";
 import { useState, useTransition } from "react";

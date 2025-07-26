@@ -19,6 +19,7 @@ export async function POST(request: Request) {
       process.env.STRIPE_WEBHOOK_SECRET as string
     );
   } catch (error) {
+    console.error(error);
     return new Response("Webhook verification failed", { status: 400 });
   }
 

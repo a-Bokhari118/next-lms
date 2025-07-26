@@ -196,6 +196,7 @@ export const Uploader = ({
           xhr.send(file);
         });
       } catch (error) {
+        console.error(error);
         toast.error("Failed to upload file");
         setFileState((prev) => ({
           ...prev,
@@ -276,6 +277,7 @@ export const Uploader = ({
         fileType: fileTypeAccepted,
       }));
     } catch (error) {
+      console.error(error);
       toast.error("Failed to delete file");
       setFileState((prev) => ({
         ...prev,

@@ -9,7 +9,7 @@ export default function NotAdminPage() {
         <div className="space-y-4 text-center">
           <h1 className="text-2xl font-bold text-red-600">Access Denied</h1>
           <p className="text-muted-foreground">
-            Sorry, you don't have admin privileges to access this area.
+            Sorry, you don&apos;t have admin privileges to access this area.
           </p>
           <Link href="/">
             <Button className="w-full">Return to Home</Button>

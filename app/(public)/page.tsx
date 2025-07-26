@@ -1,7 +1,6 @@
 "use client";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { Badge } from "@/components/ui/badge";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardDescription,
@@ -15,14 +14,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { authClient } from "@/lib/auth-client";
 import {
   Book,
   ChartArea,
-  CheckCircle,
   Gamepad,
   Headset,
-  LucideIcon,
   MonitorPlay,
   Quote,
   Star,
@@ -30,9 +26,7 @@ import {
   UsersIcon,
 } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const FEATURES = [
   {
@@ -120,8 +114,6 @@ const TESTIMONIALS = [
 ];
 
 export default function Home() {
-  const { data: session } = authClient.useSession();
-
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -259,7 +251,9 @@ export default function Home() {
             <Badge variant="outline" className="mb-4">
               Benefits
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold">What You'll Get</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">
+              What You&apos;ll Get
+            </h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -322,7 +316,7 @@ export default function Home() {
                     <Card className="p-6 h-full hover:shadow-lg transition-shadow">
                       <Quote className="size-8 mb-4 text-primary" />
                       <p className="mb-4 text-muted-foreground italic">
-                        "{testimonial.content}"
+                        {testimonial.content}
                       </p>
                       <div className="flex items-center gap-2 mb-2">
                         {[...Array(testimonial.rating)].map((_, i) => (

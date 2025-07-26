@@ -17,7 +17,7 @@ export const editCourse = async (
   data: CourseSchemaType,
   courseId: string
 ): Promise<ApiResponse> => {
-  const session = await requireAdmin();
+  await requireAdmin();
 
   try {
     const validatedData = courseSchema.safeParse(data);
@@ -28,7 +28,7 @@ export const editCourse = async (
       };
     }
 
-    const course = await prisma.course.update({
+    await prisma.course.update({
       where: {
         id: courseId,
       },

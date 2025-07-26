@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { CloudUpload, ImageIcon, Loader2, X } from "lucide-react";
+import { CloudUpload, ImageIcon, X } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 

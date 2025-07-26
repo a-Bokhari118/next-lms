@@ -1,11 +1,5 @@
 "use client";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   DndContext,
   DragEndEvent,
@@ -38,8 +32,6 @@ import {
   FileText,
   Grip,
   GripVertical,
-  Plus,
-  Trash2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -52,7 +44,7 @@ import { DeleteChapter } from "./delete-chapter";
 
 type SortableItemType = {
   id: string;
-  children: (listeners: DraggableSyntheticListeners) => ReactNode; // Fix spelling here
+  children: (listeners: DraggableSyntheticListeners) => ReactNode;
   className?: string;
   data?: {
     type: "chapter" | "lesson";

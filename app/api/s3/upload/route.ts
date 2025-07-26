@@ -7,7 +7,7 @@ import { requireAdmin } from "@/app/data/admin/require-admin";
 import { fileUploadSchema } from "./schema";
 
 export async function POST(req: Request) {
-  const session = await requireAdmin();
+  await requireAdmin();
 
   try {
     const body = await req.json();

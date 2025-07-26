@@ -16,10 +16,18 @@ import {
 import { authClient } from "@/lib/auth-client";
 import { LineSquiggle } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useState, useTransition } from "react";
+import React, { Suspense, useState, useTransition } from "react";
 import { toast } from "sonner";
 
-const VerifyEmail = () => {
+export default function VerifyEmail() {
+  return (
+    <Suspense>
+      <VerifyEmailRequest />;
+    </Suspense>
+  );
+}
+
+const VerifyEmailRequest = () => {
   const [otp, setOtp] = useState("");
   const [emailPending, startTransition] = useTransition();
   const router = useRouter();
@@ -87,5 +95,3 @@ const VerifyEmail = () => {
     </div>
   );
 };
-
-export default VerifyEmail;

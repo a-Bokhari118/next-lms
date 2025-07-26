@@ -4,7 +4,7 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { MenuBar } from "./menu-bar";
 import TextAlign from "@tiptap/extension-text-align";
-import { FormControl } from "../ui/form";
+
 const RichTextEditor = ({ field }: { field: any }) => {
   const editor = useEditor({
     extensions: [

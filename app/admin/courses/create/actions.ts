@@ -29,7 +29,7 @@ export const createCourse = async (
       },
     });
 
-    const course = await prisma.course.create({
+    await prisma.course.create({
       data: {
         ...validatedData.data,
         userId: session?.user.id!,

@@ -13,7 +13,7 @@ export default function CoursesPage() {
           Explore Courses
         </h1>
         <p className="text-muted-foreground">
-          Explore our courses and find the one that's right for you.
+          Explore our courses and find the one that&apos;s right for you.
         </p>
       </div>
       <Suspense fallback={<RenderCoursesSkeleton />}>

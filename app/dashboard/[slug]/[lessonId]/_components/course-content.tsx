@@ -4,7 +4,7 @@ import RenderEditorText from "@/components/rich-text-editor/render-editor-text";
 import { Button } from "@/components/ui/button";
 import { tryCatch } from "@/hooks/try-catch";
 import { useConstructUrl } from "@/hooks/use-construct-url";
-import { BookIcon, CheckCircle, OctagonAlert } from "lucide-react";
+import { CheckCircle, OctagonAlert } from "lucide-react";
 import { useTransition } from "react";
 import { markLessonAsCompleted } from "../actions";
 import { toast } from "sonner";
